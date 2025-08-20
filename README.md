@@ -18,8 +18,9 @@ Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trư�
 ## 📂 Cấu trúc thư mục
 ```
 src/
-├─ app/               # Core-level (setup toàn cục)
-│  ├─ router/         # Vue Router + guards
+├─ app/              
+│  ├─ router/         # Vue Router 
+│  │    └─ guards/    # router guard (auth/role)
 │  ├─ store/          # Global store (Pinia)
 │  ├─ i18n/           # Đa ngôn ngữ
 │  ├─ config/         # Config (axios, socket)
@@ -31,11 +32,8 @@ src/
 │   ├─ components/    # UI component của feature
 │   ├─ pages/         # Page cho router
 │   ├─ composables/   # logic tái sử dụng (useAuth, useChat)
-│   ├─ utils/         # hàm tiện ích (formatDate, debounce)
-│   ├─ constants/     # hằng số toàn cục (API_URL, ROLES)
 │   ├─ services/      # gọi API/socket, không giữ state
 │   ├─ store/         # Pinia quản lý state
-│   ├─ guards/        # router guard (auth/role)
 │   └─ index.js       # barrel export
 │
 ├─ shared/            # Dùng chung nhiều feature
