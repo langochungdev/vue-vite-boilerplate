@@ -1,0 +1,2 @@
+// Socket config
+export default {};
