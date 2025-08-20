@@ -17,37 +17,37 @@ Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trư�
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/)
 
 ## 📂 Cấu trúc thư mục
-```
+```text
 src/
+├─ app/               # Core-level (setup toàn cục)
+│  ├─ router/         # Vue Router + guards
+│  ├─ store/          # Global store (Pinia)
+│  ├─ i18n/           # Đa ngôn ngữ
+│  ├─ config/         # Config (axios, socket)
+│  ├─ styles/         # Style toàn cục
+│  └─ layouts/        # Layouts (MainLayout, AuthLayout)
 │
-├─ app/ # Core-level (setup toàn cục)
-│ ├─ router/ # Vue Router + guards
-│ ├─ store/ # Global store (Pinia)
-│ ├─ i18n/ # Đa ngôn ngữ
-│ ├─ config/ # Config (axios, socket)
-│ ├─ styles/ # Style toàn cục
-│ └─ layouts/ # Layouts (MainLayout, AuthLayout)
+├─ assets/            # Hình ảnh, icon, font
+├─ features/          # Tổ chức theo feature (auth, chat, dashboard, ...)
+│   ├─ components/    # UI component của feature
+│   ├─ pages/         # Page cho router
+│   ├─ composables/   # logic tái sử dụng (useAuth, useChat)
+│   ├─ utils/         # hàm tiện ích (formatDate, debounce)
+│   ├─ constants/     # hằng số toàn cục (API_URL, ROLES)
+│   ├─ services/      # gọi API/socket, không giữ state
+│   ├─ store/         # Pinia quản lý state
+│   ├─ guards/        # router guard (auth/role)
+│   └─ index.js       # barrel export
 │
-├─ assets/ # Hình ảnh, icon, font
-├─ features/ # Tổ chức theo feature (auth, chat, dashboard, ...)
-│ ├─ components/ # UI component của feature
-│ ├─ pages/ # Page cho router
-│ ├─ composables/ # logic tái sử dụng (useAuth, useChat) cho component gọi
-│ ├─ utils/ # hàm tiện ích thuần túy (formatDate, debounce)
-│ ├─ constants/ # hằng số toàn cục (API_URL, ROLES)
-│ ├─ services/ # gọi API/socket, không giữ state
-│ ├─ store/ # Pinia quản lý state, gọi service để fetch/update
-│ ├─ guards/ # router guard, chặn hoặc redirect theo auth/role trước khi vào page
-│ └─ index.js # barrel export để import tiện từ feature
-│
-├─ shared/ # Dùng chung giữa nhiều feature
-│ ├─ components/ # UI component dùng chung (Button, Modal, Table)
-│ ├─ composables/ # Composables dùng chung (useFetch, usePagination)
-│ ├─ utils/ # Hàm tiện ích (formatDate, debounce)
-│ └─ constants/ # Hằng số toàn cục (API endpoints, roles)
+├─ shared/            # Dùng chung nhiều feature
+│   ├─ components/    # UI component chung
+│   ├─ composables/   # Composables chung
+│   ├─ utils/         # Hàm tiện ích
+│   └─ constants/     # Hằng số toàn cục
 │
 ├─ App.vue
 └─ main.js
+
 ````
 
 
