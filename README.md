@@ -18,7 +18,6 @@ Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trư�
 
 ## 📂 Cấu trúc thư mục
 ```
-
 src/
 │
 ├─ app/ # Core-level (setup toàn cục)
@@ -49,27 +48,22 @@ src/
 │
 ├─ App.vue
 └─ main.js
-
 ````
 
 
 ## 🚀 Cách chạy
 
 ### 1. Local
-```bash
 npm install
 npm run dev
-````
-
 Mặc định chạy tại: [http://localhost:5173](http://localhost:5173)
 
 ### 2. Docker (Dev Container)
-
 Repo đã cấu hình sẵn **Dev Container**.
 Chỉ cần mở project bằng **VSCode + Dev Containers extension**:
 
-## 📦 Danh sách lệnh cài thư viện
 
+## 📦 Danh sách lệnh cài thư viện
 ### Dependencies
 
 ```bash
