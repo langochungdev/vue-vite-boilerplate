@@ -1,11 +1,9 @@
-```markdown
 # Vue Vite Boilerplate
 
 Boilerplate cho dự án **Vue 3 + Vite** với cấu trúc chuẩn, tích hợp sẵn **Pinia, Vue Router, Axios, i18n, ESLint + Prettier**.  
 Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trường đồng nhất.
 
 ## ⚙️ Tech stack
-
 - [Vue 3](https://vuejs.org/)
 - [Vite](https://vitejs.dev/)
 - [Pinia](https://pinia.vuejs.org/) (state management)
@@ -16,60 +14,54 @@ Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trư�
 - [Bootstrap 5](https://getbootstrap.com/)
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/)
 
+
 ## 📂 Cấu trúc thư mục
 ```
-
 src/
+├─ app/               # Core-level (setup toàn cục)
+│  ├─ router/         # Vue Router + guards
+│  ├─ store/          # Global store (Pinia)
+│  ├─ i18n/           # Đa ngôn ngữ
+│  ├─ config/         # Config (axios, socket)
+│  ├─ styles/         # Style toàn cục
+│  └─ layouts/        # Layouts (MainLayout, AuthLayout)
 │
-├─ app/ # Core-level (setup toàn cục)
-│ ├─ router/ # Vue Router + guards
-│ ├─ store/ # Global store (Pinia)
-│ ├─ i18n/ # Đa ngôn ngữ
-│ ├─ config/ # Config (axios, socket)
-│ ├─ styles/ # Style toàn cục
-│ └─ layouts/ # Layouts (MainLayout, AuthLayout)
+├─ assets/            # Hình ảnh, icon, font
+├─ features/          # Tổ chức theo feature (auth, chat, dashboard, ...)
+│   ├─ components/    # UI component của feature
+│   ├─ pages/         # Page cho router
+│   ├─ composables/   # logic tái sử dụng (useAuth, useChat)
+│   ├─ utils/         # hàm tiện ích (formatDate, debounce)
+│   ├─ constants/     # hằng số toàn cục (API_URL, ROLES)
+│   ├─ services/      # gọi API/socket, không giữ state
+│   ├─ store/         # Pinia quản lý state
+│   ├─ guards/        # router guard (auth/role)
+│   └─ index.js       # barrel export
 │
-├─ assets/ # Hình ảnh, icon, font
-├─ features/ # Tổ chức theo feature (auth, chat, dashboard, ...)
-│ ├─ components/ # UI component của feature
-│ ├─ pages/ # Page cho router
-│ ├─ composables/ # logic tái sử dụng (useAuth, useChat) cho component gọi
-│ ├─ utils/ # hàm tiện ích thuần túy (formatDate, debounce)
-│ ├─ constants/ # hằng số toàn cục (API_URL, ROLES)
-│ ├─ services/ # gọi API/socket, không giữ state
-│ ├─ store/ # Pinia quản lý state, gọi service để fetch/update
-│ ├─ guards/ # router guard, chặn hoặc redirect theo auth/role trước khi vào page
-│ └─ index.js # barrel export để import tiện từ feature
-│
-├─ shared/ # Dùng chung giữa nhiều feature
-│ ├─ components/ # UI component dùng chung (Button, Modal, Table)
-│ ├─ composables/ # Composables dùng chung (useFetch, usePagination)
-│ ├─ utils/ # Hàm tiện ích (formatDate, debounce)
-│ └─ constants/ # Hằng số toàn cục (API endpoints, roles)
+├─ shared/            # Dùng chung nhiều feature
+│   ├─ components/    # UI component chung
+│   ├─ composables/   # Composables chung
+│   ├─ utils/         # Hàm tiện ích
+│   └─ constants/     # Hằng số toàn cục
 │
 ├─ App.vue
 └─ main.js
-
-````
+```
 
 
 ## 🚀 Cách chạy
 
 ### 1. Local
-```bash
 npm install
 npm run dev
-````
-
 Mặc định chạy tại: [http://localhost:5173](http://localhost:5173)
 
 ### 2. Docker (Dev Container)
-
 Repo đã cấu hình sẵn **Dev Container**.
 Chỉ cần mở project bằng **VSCode + Dev Containers extension**:
 
-## 📦 Danh sách lệnh cài thư viện
 
+## 📦 Danh sách lệnh cài thư viện
 ### Dependencies
 
 ```bash
@@ -100,17 +92,23 @@ npm install -D vite@^7.1.2 \
 
 ## 🧩 VSCode Extensions
 
-- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- [vue](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 - ESLint (`dbaeumer.vscode-eslint`)
 - Prettier (`esbenp.prettier-vscode`)
 - Path Intellisense (`christian-kohler.path-intellisense`)
+- Dev Containers (`ms-vscode-remote.remote-containers`)
+- Container Tools (`ms-azuretools.vscode-docker`)
 
 ## 📖 Ghi chú
+```
+| Thư mục       | Mô tả                                                                 |
+|---------------|----------------------------------------------------------------------|
+| `composables/`| Logic tái sử dụng (ví dụ: `useAuth`, `useChat`) cho component gọi.   |
+| `utils/`      | Hàm tiện ích thuần túy (ví dụ: `formatDate`, `debounce`).            |
+| `constants/`  | Hằng số toàn cục (ví dụ: `API_URL`, `ROLES`).                        |
+| `index.js`    | Barrel export để import tiện từ feature.                             |
+| `services/`   | Gọi API/socket, không giữ state.                                     |
+| `store/`      | Pinia quản lý state, gọi service để fetch/update.                    |
+| `guards/`     | Router guard, chặn hoặc redirect theo auth/role trước khi vào page.  |
+```
 
-composables/ : logic tái sử dụng (useAuth, useChat) cho component gọi.  
-utils/ : hàm tiện ích thuần túy (formatDate, debounce).  
-constants/ : hằng số toàn cục (API_URL, ROLES).  
-index.js : barrel export để import tiện từ feature.  
-services/ : gọi API/socket, không giữ state.  
-store/ : Pinia quản lý state, gọi service để fetch/update.  
-guards/ : router guard, chặn hoặc redirect theo auth/role trước khi vào page.
