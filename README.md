@@ -1,11 +1,9 @@
-```markdown
 # Vue Vite Boilerplate
 
 Boilerplate cho dự án **Vue 3 + Vite** với cấu trúc chuẩn, tích hợp sẵn **Pinia, Vue Router, Axios, i18n, ESLint + Prettier**.  
 Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trường đồng nhất.
 
 ## ⚙️ Tech stack
-
 - [Vue 3](https://vuejs.org/)
 - [Vite](https://vitejs.dev/)
 - [Pinia](https://pinia.vuejs.org/) (state management)
@@ -16,8 +14,9 @@ Hỗ trợ chạy trong **Dev Container (Docker)** để đảm bảo môi trư�
 - [Bootstrap 5](https://getbootstrap.com/)
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/)
 
+
 ## 📂 Cấu trúc thư mục
-```text
+```
 src/
 ├─ app/               # Core-level (setup toàn cục)
 │  ├─ router/         # Vue Router + guards
@@ -47,8 +46,7 @@ src/
 │
 ├─ App.vue
 └─ main.js
-
-````
+```
 
 
 ## 🚀 Cách chạy
@@ -94,17 +92,23 @@ npm install -D vite@^7.1.2 \
 
 ## 🧩 VSCode Extensions
 
-- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- [vue](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 - ESLint (`dbaeumer.vscode-eslint`)
 - Prettier (`esbenp.prettier-vscode`)
 - Path Intellisense (`christian-kohler.path-intellisense`)
+- Dev Containers (`ms-vscode-remote.remote-containers`)
+- Container Tools (`ms-azuretools.vscode-docker`)
 
 ## 📖 Ghi chú
+```
+| Thư mục       | Mô tả                                                                 |
+|---------------|----------------------------------------------------------------------|
+| `composables/`| Logic tái sử dụng (ví dụ: `useAuth`, `useChat`) cho component gọi.   |
+| `utils/`      | Hàm tiện ích thuần túy (ví dụ: `formatDate`, `debounce`).            |
+| `constants/`  | Hằng số toàn cục (ví dụ: `API_URL`, `ROLES`).                        |
+| `index.js`    | Barrel export để import tiện từ feature.                             |
+| `services/`   | Gọi API/socket, không giữ state.                                     |
+| `store/`      | Pinia quản lý state, gọi service để fetch/update.                    |
+| `guards/`     | Router guard, chặn hoặc redirect theo auth/role trước khi vào page.  |
+```
 
-composables/ : logic tái sử dụng (useAuth, useChat) cho component gọi.  
-utils/ : hàm tiện ích thuần túy (formatDate, debounce).  
-constants/ : hằng số toàn cục (API_URL, ROLES).  
-index.js : barrel export để import tiện từ feature.  
-services/ : gọi API/socket, không giữ state.  
-store/ : Pinia quản lý state, gọi service để fetch/update.  
-guards/ : router guard, chặn hoặc redirect theo auth/role trước khi vào page.
